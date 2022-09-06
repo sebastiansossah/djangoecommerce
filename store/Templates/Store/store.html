@@ -1,0 +1,30 @@
+{% extends "finalProjectApp/base.html" %}
+
+{% load static %}
+
+{% block title %}Store{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+
+      
+    {% for product in varStore %}
+    <div class="col-6 col-md-4" >
+        <div class="card" style="background-color: rgba(48, 48, 48); color: white; margin-top: 20px; margin-bottom: 20px;" styles="width: 18rem;" >
+            <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{product.productName}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text">$ {{product.price}}</p>
+            <a href="{% url 'car:add' product.id %}" class="btn btn-primary">Buy now</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "finalProjectApp/base.html" %}
+
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+    {% for post in varPost %}
+
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img  img-fluid mb-3 mb-lg-0 rounded"  src="{{post.image.url}}" alt="" style="width: 50%; height: 50%;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{post.tittle}}</span>
+          </h2>
+          <p class="mb-3">{{post.content}} </p>
+          <div style="text-align: left ; font-size: 70%;">
+          <strong>Author: </strong>{{post.author}}
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+    {% endfor %}
+
+    
+    <section>
+        <div style="width: 75%; color:aliceblue; margin: auto; text-align: center;"> 
+          ·
+          {% for post in varPost %}
+          
+            {% for category in post.category.all %}
+
+          &nbsp; {{category.Name}} &nbsp; ·
+            
+
+            {% endfor%}
+
+          {% endfor %}
+
+
+        </div>
+    </section>
+    
+{% endblock %}

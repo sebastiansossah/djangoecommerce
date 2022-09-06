@@ -1,0 +1,86 @@
+{% extends "finalProjectApp/base.html" %}
+
+
+{% load static %}
+
+{% block title %}shopping car{% endblock %}
+
+{% block content %}
+
+{% for mensaje in messages %}
+<span class="alert alert-danger" style="text-align: center;">{{mensaje}}</span>
+{% endfor %}
+
+<h1 class=" text-center text-white d-none d-lg-block" style="margin-top: 10px; ">
+      
+  <span class="site-heading-lower" style="font-size: 100%; background-color: rgba(48, 48, 48); padding: 5px 5px; border-radius: 10px;">Shopping cart</span>
+</h1>
+
+
+{% if request.session.car.items %}
+
+{% for key, value in request.session.car.items %}
+          <div class="card rounded-3 mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <img
+                    src="{{value.image}}"
+                    class="img-fluid rounded-3" alt="product image">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">{{value.name}}</p>
+                </div>
+                    <a href="{% url 'car:add' value.product_id %}" class="btn btn-sm btn-scces" style="background-color: rgba(48, 48, 48) ; color: white;">+</a>
+                    <p>{{value.amount}}</p>
+                    <a href="{% url 'car:rest' value.product_id %}" class="btn btn-sm btn-scces" style="background-color: rgba(48, 48, 48) ; color: white;">-</a>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <a href="{% url 'car:delete' value.product_id %}" class="btn btn-sm btn-scces" style="background-color: rgba(48, 48, 48) ; color: white;">Delete</a>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">$ &nbsp; {{value.price}}</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          {% else %}
+
+          <div class="alert alert-danger text-center"> without products </div>
+          {% endif %}
+
+          <div class="card rounded-3 mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">Total price:</p>
+                </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">{{totalPrice}}</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  
+          <div class="card">
+            <div class="card-body">
+              <!-- <button type="button" class="btn btn-warning btn-block btn-lg" >Request product</button> -->
+              <a href="{% url 'productRequest' %}" class="btn btn-sm btn-scces" style="background-color: rgba(48, 48, 48) ; color: white;">Request product</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

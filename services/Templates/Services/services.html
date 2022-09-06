@@ -1,0 +1,38 @@
+{% extends "finalProjectApp/base.html" %}
+
+{% load static %}
+
+{% block title %}Services{% endblock %}
+{% block content %}
+    {% for service in varServices %}
+
+<!-- 
+<div><p>
+    <h2 style="color: white">{{service.tittle}}</h2>
+
+    <p style="color: white">{{service.content}}</p>
+    
+    <p><img src="{{service.image.url}}"></p>
+</p></div> -->
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img  img-fluid mb-3 mb-lg-0 rounded"  src="{{service.image.url}}" alt="" style="width: 50% ;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{service.tittle}}</span>
+          </h2>
+          <p class="mb-3">{{service.content}}
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+    {% endfor %}
+{% endblock %}

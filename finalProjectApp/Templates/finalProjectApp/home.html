@@ -1,0 +1,44 @@
+{% extends "finalProjectApp/base.html" %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img  img-fluid mb-3 mb-lg-0 rounded" src="{% static 'finalProjectApp/img/fly.jpg' %}" alt="" style="height: 50%; width: 50%;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">Be competitive</span>
+            <span class="section-heading-lower">Technology is the only way</span>
+          </h2>
+          <p class="mb-3">We lead your company to be a relevant competitor on market trough technology</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+    <!-- Message -->
+    <section class="page-section cta" style="background-color: transparent;">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Be compsssetitive</span>
+                <span class="section-heading-lower">Technology is the only way</span>
+              </h2>
+              <p class="mb-0">We lead your company to be a relevant competitor on market trough technology</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% endblock %}
+
+
